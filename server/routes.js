@@ -25,12 +25,13 @@ router.post("/todos", async (req, res) => {
 
 // DELETE /todos/:id
 router.delete("/todos/:id", async (req, res) => {
-    const collection = getCollection();
-    const _id = new ObjectId(req.params.id);
-  
-    const deletedTodo = await collection.deleteOne({ _id });
-    res.status(200).json(deletedTodo);
-  })
+  const collection = getCollection();
+  const _id = new ObjectId(req.params.id);
+
+  const deletedTodo = await collection.deleteOne({ _id });
+  res.status(200).json(deletedTodo);
+})
+
 
 // PUT /todos/:id
 router.put("/todos/:id", async (req, res) => {
